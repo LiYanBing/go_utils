@@ -18,7 +18,7 @@ const (
 	key      = 1
 )
 
-//如果需要发送邮件需要设置下面三个值
+//如果需要发送邮件需要设置下面的值
 var (
 	Subject string
 	Mail    *mail.Mail
