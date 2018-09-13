@@ -4,8 +4,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/LiYanBing/go_utils/reqid.v1"
 	"github.com/gin-gonic/gin"
+	"study/stu/go_utils/glog.v1"
+	"study/stu/go_utils/reqid.v1"
 )
 
 type Server struct {
@@ -16,7 +17,8 @@ type Server struct {
 func NewServer(addr ...string) *Server {
 	r := gin.New()
 	r.Use(gin.Recovery())
-	handler := reqid.RequestId(r)
+	handler := glog.GlogHandler(r)
+	handler = reqid.RequestIdHandler(handler)
 
 	address := resolveAddress(addr)
 	return &Server{

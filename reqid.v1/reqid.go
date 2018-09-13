@@ -58,7 +58,7 @@ func FromContext(ctx context.Context) (string, bool) {
 	return reqId, ok
 }
 
-func RequestId(next http.Handler) http.Handler {
+func RequestIdHandler(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
 		ctx := NewContext(w, req)
 		next.ServeHTTP(w, req.WithContext(ctx))
