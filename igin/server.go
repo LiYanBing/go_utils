@@ -2,11 +2,10 @@ package igin
 
 import (
 	"net/http"
-
 	"os"
 
+	"github.com/LiYanBing/go_utils/reqid.v1"
 	"github.com/gin-gonic/gin"
-	"study/stu/go_utils/reqid.v1"
 )
 
 type Server struct {
